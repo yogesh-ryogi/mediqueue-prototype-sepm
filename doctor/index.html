@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MediQueue – Doctor dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="css/doctor.css">
+</head>
+<body>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+ <div class="logo">Medi<span>Queue</span> <span style="font:500 14px 'Instrument Sans',sans-serif;color:var(--mute)">Doctor</span></div>
+ <h1>Doctor login</h1>
+ <p class="sub">Sign in to see your own queue, slots and patients.</p>
+ <div class="card">
+  <div class="fld"><label for="uid">Doctor ID</label><input id="uid" autocomplete="username" autocapitalize="none" spellcheck="false"></div>
+  <div class="fld"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password"></div>
+  <p class="err" id="err" role="alert"></p>
+  <button class="btn" id="go" style="width:100%">Sign in</button>
+ </div>
+ <div class="demo">
+  <h2>Demo accounts</h2>
+  <p class="hint">Prototype only. Tap an account to fill in its login, then press Sign in. A real system would use hashed passwords and secure sessions.</p>
+  <div id="accs"></div>
+ </div>
+ <p class="hint" style="text-align:center;margin-top:20px">Are you a patient? <a href="../patient/index.html" style="color:var(--teal);font-weight:600">Open the patient website</a></p>
+</div>
+
+<!-- DASHBOARD -->
+<div class="wrap" id="dash" hidden>
+<header>
+ <div class="logo">Medi<span>Queue</span> <span style="font:500 14px 'Instrument Sans',sans-serif;color:var(--mute)">Doctor</span></div>
+ <div class="who"><div class="av" id="dav" aria-hidden="true"></div><div><b id="dname"></b><small id="dsub"></small></div><button class="out" id="logout">Log out</button></div>
+</header>
+<div class="top">
+ <div><h1>Today's queue</h1><p id="date"></p></div>
+ <button class="sw" id="avail" role="switch" aria-checked="true"><span class="tg"></span><span id="availT">Accepting new bookings</span></button>
+</div>
+<div class="banner" id="banner" hidden>You are on a break. Patients cannot book new slots until you turn bookings back on.</div>
+<div class="grid">
+ <main>
+  <section class="now" id="now" aria-live="polite"></section>
+  <section class="card"><h2>Patients today</h2><div id="queue"></div></section>
+ </main>
+ <aside class="side">
+  <div class="stats" id="stats"></div>
+  <section class="card"><h2>Today's slots</h2><div class="slots" id="slots"></div><p class="hint">Dark slots are booked by patients. Tap an open slot to block it, for example for a break.</p></section>
+  <section class="card"><h2>Add walk-in</h2><div class="add"><input id="wn" placeholder="Patient name" aria-label="Walk-in patient name" autocomplete="off"><button class="btn" id="wb">Add to queue</button></div><p class="hint" id="wh"></p></section>
+ </aside>
+</div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/queue.js"></script>
+</body>
+</html>

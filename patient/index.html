@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MediQueue – Book a doctor near you</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="css/patient.css">
+</head>
+<body>
+</head>
+<body>
+
+<!-- AUTH -->
+<div class="auth" id="auth">
+ <div class="logo">Medi<span>Queue</span></div>
+ <h1 id="aTitle">Welcome back</h1>
+ <p class="sub" id="aSub">Log in to book doctors and see your tokens.</p>
+ <div class="box">
+  <div class="tabs" role="tablist">
+   <button class="tab" role="tab" id="tLogin" aria-selected="true">Log in</button>
+   <button class="tab" role="tab" id="tSignup" aria-selected="false">Sign up</button>
+  </div>
+  <div class="fld" id="fName" hidden><label for="nm">Full name</label><input id="nm" autocomplete="name"></div>
+  <div class="fld"><label for="mb">Mobile number</label><input id="mb" inputmode="numeric" maxlength="10" autocomplete="username" placeholder="10-digit number"></div>
+  <div class="fld"><label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" placeholder="At least 6 characters"></div>
+  <div class="fld" id="fConf" hidden><label for="pw2">Confirm password</label><input id="pw2" type="password" autocomplete="new-password"></div>
+  <label class="show"><input type="checkbox" id="sp"> Show password</label>
+  <p class="err" id="aErr" role="alert"></p>
+  <button class="btn" id="aGo" style="width:100%">Log in</button>
+  <p class="alt" id="aAlt"></p>
+ </div>
+ <p class="alt">Are you a doctor? <a href="../doctor/index.html">Open the doctor login</a></p>
+</div>
+
+<!-- APP -->
+<div class="wrap" id="app" hidden>
+<header><div class="logo">Medi<span>Queue</span></div>
+<div class="hr"><span class="hi" id="hi"></span><button class="mine" id="mineBtn">My appointments (<span id="mineN">0</span>)</button><button class="mine" id="out">Log out</button></div></header>
+<section class="hero">
+<h1>See a doctor without the waiting room.</h1>
+<p>Pick your area, compare doctors across hospitals, and book a slot. You get a token number and live queue position.</p>
+<div class="filters">
+<div><label for="area">Your locality</label><select id="area"></select></div>
+<div><label for="kind">Type</label><select id="kind"><option value="">Clinics and hospitals</option><option value="Clinic">Local clinics</option><option value="Hospital">Hospitals</option></select></div>
+<div><label for="spec">Specialty</label><select id="spec"></select></div>
+<div><label for="q">Doctor or clinic</label><input id="q" type="search" placeholder="Search by name"></div>
+</div>
+</section>
+<div class="count" id="count" aria-live="polite"></div>
+<p style="color:var(--mute);font-size:13px;margin:-4px 0 12px">Clinics, doctors and queue numbers shown are sample data for this prototype.</p>
+<div class="list" id="list"></div>
+</div>
+
+<dialog id="book"><div class="mbody" id="bookBody"></div></dialog>
+<dialog id="mineDlg"><div class="mbody"><h2>My appointments</h2><div id="mineList"></div><div class="actions"><button class="btn ghost" id="mineClose">Close</button></div></div></dialog>
+
+<script src="js/storage.js"></script>
+<script src="js/data.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/booking.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
